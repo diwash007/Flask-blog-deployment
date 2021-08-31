@@ -39,6 +39,7 @@ future==0.18.2
 gevent==21.1.2
 gevent-websocket==0.10.1
 greenlet==1.1.0
+gunicorn==20.1.0
 httplib2==0.19.1
 humanize==3.9.0
 idna==2.10
