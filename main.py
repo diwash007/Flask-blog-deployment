@@ -9,6 +9,7 @@ from sqlalchemy.orm import relationship
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 from flask_gravatar import Gravatar
+import os
 
 
 app = Flask(__name__)
@@ -28,7 +29,7 @@ gravatar = Gravatar(app,
                     base_url=None)
 
 ## CONNECT TO DB
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ('DATABASE_URL')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL",  "sqlite:///blog.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
